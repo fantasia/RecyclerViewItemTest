@@ -1,16 +1,16 @@
 package net.ohapps.uifx.itemview;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.ohapps.recyclerviewitemtest.R;
-import net.ohapps.uifx.RecyclerItemViewHolder;
 
 /**
  * fantasiacjh@gmail.com
  */
-public class ImageItemViewHolder extends RecyclerItemViewHolder {
+public class ImageItemViewHolder extends RecyclerView.ViewHolder {
     private ImageView iv01;
     private TextView tv01;
     private TextView tv02;

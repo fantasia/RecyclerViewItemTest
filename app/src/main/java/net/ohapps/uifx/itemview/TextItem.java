@@ -1,11 +1,11 @@
 package net.ohapps.uifx.itemview;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
 import net.ohapps.recyclerviewitemtest.R;
 import net.ohapps.uifx.RecyclerItemView;
-import net.ohapps.uifx.RecyclerItemViewHolder;
 
 /**
  * fantasiacjh@gmail.com
@@ -27,8 +27,8 @@ public class TextItem implements RecyclerItemView {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerItemViewHolder viewHolder) {
-        View v = viewHolder.getItemView();
+    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder) {
+        View v = viewHolder.itemView;
         ((TextView) v.findViewById(R.id.tv01)).setText(t1);
         ((TextView) v.findViewById(R.id.tv02)).setText(t2);
         ((TextView) v.findViewById(R.id.tv03)).setText(t3);

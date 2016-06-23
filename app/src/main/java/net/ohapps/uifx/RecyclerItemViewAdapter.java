@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * fantasiacjh@gmail.com
  */
-public class RecyclerItemViewAdapter extends RecyclerView.Adapter<RecyclerItemViewHolder> {
+public class RecyclerItemViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<RecyclerItemView> items = new ArrayList<>();
 
     public ArrayList<RecyclerItemView> getItems() {
@@ -31,13 +31,12 @@ public class RecyclerItemViewAdapter extends RecyclerView.Adapter<RecyclerItemVi
     }
 
     @Override
-    public RecyclerItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return RecyclerItemViewHolderFactory.getInstance().create(parent, viewType);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerItemViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         this.items.get(position).onBindViewHolder(holder);
     }
-
 }

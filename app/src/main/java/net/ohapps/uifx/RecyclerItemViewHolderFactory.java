@@ -1,5 +1,6 @@
 package net.ohapps.uifx;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,7 @@ import java.util.HashMap;
  */
 public class RecyclerItemViewHolderFactory {
     public interface RecyclerItemViewHolderCreator {
-        RecyclerItemViewHolder create(View v);
+        RecyclerView.ViewHolder create(View v);
     }
 
     private static RecyclerItemViewHolderFactory instance = new RecyclerItemViewHolderFactory();
@@ -22,7 +23,7 @@ public class RecyclerItemViewHolderFactory {
     private RecyclerItemViewHolderFactory() {
         registerViewType(R.layout.rv_image_item, new RecyclerItemViewHolderCreator() {
             @Override
-            public RecyclerItemViewHolder create(View v) {
+            public RecyclerView.ViewHolder create(View v) {
                 return new ImageItemViewHolder(v);
             }
         });
@@ -38,14 +39,15 @@ public class RecyclerItemViewHolderFactory {
         creatorMap.put(viewType, creator);
     }
 
-    public RecyclerItemViewHolder create(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder create(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
 
         RecyclerItemViewHolderCreator creator = creatorMap.get(viewType);
         if (null != creator) {
             return creator.create(v);
         } else {
-            return new RecyclerItemViewHolder(v);
+            return new RecyclerView.ViewHolder(v) {
+            };
         }
     }
 }
