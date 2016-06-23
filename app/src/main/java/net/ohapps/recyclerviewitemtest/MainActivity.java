@@ -12,8 +12,8 @@ import android.widget.Toast;
 import net.ohapps.uifx.RecyclerItemClickListener;
 import net.ohapps.uifx.RecyclerItemView;
 import net.ohapps.uifx.RecyclerItemViewAdapter;
-import net.ohapps.uifx.itemview.ImageItemView;
-import net.ohapps.uifx.itemview.TextItemView;
+import net.ohapps.uifx.itemview.ImageItem;
+import net.ohapps.uifx.itemview.TextItem;
 
 import java.util.ArrayList;
 
@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<RecyclerItemView> items = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
             if (i % 2 == 0) {
-                items.add(new TextItemView("Title " + i, "Content " + i, "Date " + i));
+                items.add(new TextItem("Title " + i, "Content " + i, "Date " + i));
             } else {
-                items.add(new ImageItemView("Image " + i, "Desc " + i, "Size " + i));
+                items.add(new ImageItem("Image " + i, "Desc " + i, "Size " + i));
             }
         }
         return items;

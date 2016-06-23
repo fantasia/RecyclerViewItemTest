@@ -10,12 +10,12 @@ import net.ohapps.uifx.RecyclerItemViewHolder;
 /**
  * fantasiacjh@gmail.com
  */
-public class TextItemView implements RecyclerItemView {
+public class TextItem implements RecyclerItemView {
     String t1;
     String t2;
     String t3;
 
-    public TextItemView(String t1, String t2, String t3) {
+    public TextItem(String t1, String t2, String t3) {
         this.t1 = t1;
         this.t2 = t2;
         this.t3 = t3;
@@ -36,6 +36,6 @@ public class TextItemView implements RecyclerItemView {
 
     @Override
     public String toString() {
-        return "TextItemView " + t1;
+        return "TextItem " + t1;
     }
 }

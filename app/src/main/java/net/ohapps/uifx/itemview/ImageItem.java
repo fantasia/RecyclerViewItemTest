@@ -6,12 +6,12 @@ import net.ohapps.uifx.RecyclerItemView;
 /**
  * fantasiacjh@gmail.com
  */
-public class ImageItemView implements RecyclerItemView<ImageItemViewHolder> {
+public class ImageItem implements RecyclerItemView<ImageItemViewHolder> {
     String t1;
     String t2;
     String t3;
 
-    public ImageItemView(String t1, String t2, String t3) {
+    public ImageItem(String t1, String t2, String t3) {
         this.t1 = t1;
         this.t2 = t2;
         this.t3 = t3;
@@ -29,6 +29,6 @@ public class ImageItemView implements RecyclerItemView<ImageItemViewHolder> {
 
     @Override
     public String toString() {
-        return "ImageItemView " + t1;
+        return "ImageItem " + t1;
     }
 }
