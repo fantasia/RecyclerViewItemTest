@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Toast;
 
 import net.ohapps.uifx.RecyclerItemClickListener;
@@ -26,6 +26,15 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
 
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(RecyclerView recyclerView, View itemView, int position) {
+                String msg = "onItemClick() " + ((RecyclerItemViewAdapter) recyclerView.getAdapter()).getItems().get(position);
+                Log.i("XXX", msg);
+                Toast.makeText(recyclerView.getContext(), msg, Toast.LENGTH_SHORT).show();
+            }
+        }));
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -35,13 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerItemViewAdapter.setItems(uiDataManagerGetItems());
 
-        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(view.getContext(), "onItemClick() " + recyclerItemViewAdapter.getItems().get(position), Toast.LENGTH_SHORT).show();
-//                Log.d("XXX", "onItemClick() " + recyclerItemViewAdapter.getItems().get(position));
-            }
-        }));
     }
 
     @NonNull
